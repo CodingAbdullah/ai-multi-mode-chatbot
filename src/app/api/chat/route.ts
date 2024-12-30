@@ -41,7 +41,8 @@ export async function POST(req: NextRequest) {
     // Stream text function for handling streams of text
     const result = streamText({
         model: modelType as LanguageModelV1,
-        prompt: input as string
+        prompt: input as string,
+        messages
     });
 
     return result.toDataStreamResponse();
