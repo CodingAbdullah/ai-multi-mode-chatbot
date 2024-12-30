@@ -71,7 +71,7 @@ export default function ChatbotPage() {
           
           <div className="flex flex-col items-center mb-4">
             <label className="block mb-2">Select provider</label>
-            <select disabled
+            <select
               value={selectedProvider}
               onChange={(e) => { setSelectedProvider(e.target.value); setSelectedModel('-- Select a model --'); }}
               className="mb-4 p-2 border rounded"
@@ -86,7 +86,7 @@ export default function ChatbotPage() {
           </div>
           <div className="flex flex-col items-center mb-4">
             <label className="block mb-2">Select Model</label>
-            <select disabled
+            <select
               value={selectedModel}
               onChange={(e) => setSelectedModel(e.target.value)}
               className="mb-4 p-2 border rounded"
