@@ -5,17 +5,13 @@ import { anthropic } from '@ai-sdk/anthropic';
 import { mistral } from '@ai-sdk/mistral';
 import { LanguageModelV1, streamText } from 'ai';
 import { PROVIDER_MODEL } from '@/app/utils/providerModel';
+import { NextRequest } from 'next/server';
 
 export const maxDuration = 30;
 
 // Custom API route for working with front-end request
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     const { messages, input, selectedProvider, selectedModel } = await req.json();
-
-    // Check if messages or input is undefined
-    if (!messages || !input) {
-        throw new Error('Messages or input must be defined');
-    }
 
     // Type checking and input verification
     let modelType: string | object | LanguageModelV1 = selectedProvider; // Initialize with selectedProvider
@@ -47,6 +43,6 @@ export async function POST(req: Request) {
         model: modelType as LanguageModelV1,
         prompt: input as string
     });
-    
+
     return result.toDataStreamResponse();
 }

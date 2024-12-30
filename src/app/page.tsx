@@ -22,7 +22,7 @@ export default function ChatbotPage() {
     onResponse: () => {
       setIsTyping(false)
     }
-  })
+  });
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setIsTyping(true)
