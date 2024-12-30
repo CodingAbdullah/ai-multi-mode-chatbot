@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
     // Type checking and input verification
     let modelType: string | object | LanguageModelV1 = selectedProvider; // Initialize with selectedProvider
-    let modifiedModel = selectedModel === '-- Select a Model --' ? PROVIDER_MODEL[selectedProvider][0] : selectedModel;
+    const modifiedModel = selectedModel === '-- Select a Model --' ? PROVIDER_MODEL[selectedProvider][0] : selectedModel;
 
     // Custom switch statement for working with select AI models
     switch (modelType) {
